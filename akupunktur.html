@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Akupunktur – Dr. phil. Thomas Meyer,
+      Karlsruhe
+    </title>
+    <meta
+      name="description"
+      content="Dr. phil. Thomas Meyer bietet Physikalische Therapie, Sportpsychologie und Akupunktur in Karlsruhe. Masseur, med. Bademeister und Sportwissenschaftler. Privatkassen, Beihilfe, Selbstzahler."
+    />
+    <link rel="icon" type="image/png" href="public/images/logo.jpg" />
+    <link rel="stylesheet" href="src/styles/fonts.css" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <style>
+      /* Akupunktur-spezifische Gallery-Erweiterungen */
+      .akupunktur-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .akupunktur-gallery .gallery-item {
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .akupunktur-gallery .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+      .akupunktur-gallery .gallery-item:hover img {
+        transform: scale(1.04);
+      }
+      /* Lightbox */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      }
+      .lightbox.active {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .lightbox-prev,
+      .lightbox-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 1rem;
+        border-radius: 4px;
+        transition: background 0.2s;
+      }
+      .lightbox-prev {
+        left: 1rem;
+      }
+      .lightbox-next {
+        right: 1rem;
+      }
+      .lightbox-prev:hover,
+      .lightbox-next:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      @media (max-width: 768px) {
+        .akupunktur-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .akupunktur-gallery {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══ HEADER ══════════════════════════════════════════════ -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="header-brand" aria-label="Startseite">
+          <span class="header-brand-name">Dr. phil. Thomas Meyer</span>
+          <span class="header-brand-sub"
+            >Physikalische Therapie & Sportpsychologie · Karlsruhe</span
+          >
+        </a>
+        <button
+          class="nav-toggle"
+          aria-label="Navigation öffnen"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+          <ul>
+            <li><a href="index.html">Willkommen</a></li>
+            <li>
+              <a href="physikalische-therapie.html">Physikalische Therapie</a>
+            </li>
+            <li><a href="sportpsychologie.html">Sportpsychologie</a></li>
+            <li><a href="publikationen.html">Publikationen</a></li>
+            <li><a href="service.html">Service</a></li>
+            <li><a href="akupunktur.html">Akupunktur</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ══ PAGE HERO ════════════════════════════════════════ -->
+      <section class="page-hero">
+        <div class="container">
+          <p class="breadcrumb">
+            <a href="index.html">Startseite</a> / Akupunktur
+          </p>
+          <span class="section-label" style="color: var(--color-accent-light)"
+            >Traditionelle Chinesische Medizin</span
+          >
+          <h1>Akupunktur</h1>
+        </div>
+      </section>
+
+      <!-- ══ UNESCO INFO ════════════════════════════════════════ -->
+      <section class="section section--alt">
+        <div class="container">
+          <div class="grid-2" style="align-items: center; gap: 4rem">
+            <div>
+              <span class="section-label">Immaterielles Weltkulturerbe</span>
+              <h2>1. World Day of Acupuncture</h2>
+              <div class="divider"></div>
+              <p class="lead">
+                Am 15. November 2018 wurde im UNESCO-Hauptquartier in Paris,
+                anlässlich des 8. Jahrestages der Aufnahme der Akupunktur als
+                immaterielles Weltkulturerbe, der 1. World Day of Acupuncture
+                gefeiert.
+              </p>
+              <p>
+                Zu diesem Anlass wurde eine Posterausstellung zur Geschichte der
+                Akupunktur eröffnet. Verantwortlich für den Inhalt sind:
+              </p>
+              <ul class="service-list" style="margin-top: 0.5rem">
+                <li>State Administration of Traditional Chinese Medicine</li>
+                <li>World Federation of Acupuncture-Moxibustion Societies</li>
+                <li>Chinese Association of Acupuncture and Moxibustion</li>
+                <li>Academy of Chinese Medical Sciences</li>
+              </ul>
+            </div>
+            <div>
+              <!-- Erste zwei Akupunktur-Bilder als Einstieg -->
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 0.75rem;
+                "
+              >
+                <img
+                  src="public/images/IMG_49742x.jpeg"
+                  alt="Akupunktur-Poster: Geschichte der Akupunktur"
+                  style="
+                    border-radius: 6px;
+                    width: 100%;
+                    aspect-ratio: 3/4;
+                    object-fit: cover;
+                    box-shadow: var(--shadow);
+                  "
+                  loading="lazy"
+                />
+                <img
+                  src="public/images/IMG_49752x.jpeg"
+                  alt="Akupunktur-Poster: Traditionelle Chinesische Medizin"
+                  style="
+                    border-radius: 6px;
+                    width: 100%;
+                    aspect-ratio: 3/4;
+                    object-fit: cover;
+                    box-shadow: var(--shadow);
+                  "
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ══ BILDERGALERIE POSTERAUSSTELLUNG ══════════════════ -->
+      <section class="section section--alt">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-label"
+              >Posterausstellung UNESCO Paris 2018</span
+            >
+            <h2>Geschichte der Akupunktur in Bildern</h2>
+            <div class="divider"></div>
+            <p class="lead">
+              Die vollständige Posterausstellung zur Geschichte der Akupunktur –
+              gezeigt anlässlich des 1. World Day of Acupuncture im
+              UNESCO-Hauptquartier Paris.
+            </p>
+          </div>
+
+          <div
+            class="akupunktur-gallery"
+            id="akupunktur-gallery"
+            role="list"
+            aria-label="Akupunktur-Posterausstellung"
+          >
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="0"
+            >
+              <img
+                src="public/images/IMG_49742x.jpeg"
+                alt="Akupunktur-Poster 1: Geschichte der Akupunktur"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="1"
+            >
+              <img
+                src="public/images/IMG_49752x.jpeg"
+                alt="Akupunktur-Poster 2"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="2"
+            >
+              <img
+                src="public/images/IMG_49762x.jpeg"
+                alt="Akupunktur-Poster 3"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="3"
+            >
+              <img
+                src="public/images/IMG_49772x.jpeg"
+                alt="Akupunktur-Poster 4"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="4"
+            >
+              <img
+                src="public/images/IMG_49782x.jpeg"
+                alt="Akupunktur-Poster 5"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="5"
+            >
+              <img
+                src="public/images/IMG_49792x.jpeg"
+                alt="Akupunktur-Poster 6"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="6"
+            >
+              <img
+                src="public/images/IMG_49802x.jpeg"
+                alt="Akupunktur-Poster 7"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="7"
+            >
+              <img
+                src="public/images/IMG_49812x.jpeg"
+                alt="Akupunktur-Poster 8"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="8"
+            >
+              <img
+                src="public/images/IMG_49822x.jpeg"
+                alt="Akupunktur-Poster 9"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="9"
+            >
+              <img
+                src="public/images/IMG_49832x.jpeg"
+                alt="Akupunktur-Poster 10"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="10"
+            >
+              <img
+                src="public/images/IMG_49842x.jpeg"
+                alt="Akupunktur-Poster 11"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="11"
+            >
+              <img
+                src="public/images/IMG_49862x.jpeg"
+                alt="Akupunktur-Poster 12"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="12"
+            >
+              <img
+                src="public/images/IMG_49872x.jpeg"
+                alt="Akupunktur-Poster 13"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="13"
+            >
+              <img
+                src="public/images/IMG_4988_22x.jpeg"
+                alt="Akupunktur-Poster 14"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="14"
+            >
+              <img
+                src="public/images/IMG_49892x.jpeg"
+                alt="Akupunktur-Poster 15"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="15"
+            >
+              <img
+                src="public/images/IMG_49902x.jpeg"
+                alt="Akupunktur-Poster 16"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="16"
+            >
+              <img
+                src="public/images/IMG_49912x.jpeg"
+                alt="Akupunktur-Poster 17"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="17"
+            >
+              <img
+                src="public/images/IMG_49922x.jpeg"
+                alt="Akupunktur-Poster 18"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="18"
+            >
+              <img
+                src="public/images/IMG_49932x.jpeg"
+                alt="Akupunktur-Poster 19"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="19"
+            >
+              <img
+                src="public/images/IMG_49942x.jpeg"
+                alt="Akupunktur-Poster 20"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="20"
+            >
+              <img
+                src="public/images/IMG_49952x.jpeg"
+                alt="Akupunktur-Poster 21"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="21"
+            >
+              <img
+                src="public/images/IMG_49962x.jpeg"
+                alt="Akupunktur-Poster 22"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="22"
+            >
+              <img
+                src="public/images/IMG_49972x.jpeg"
+                alt="Akupunktur-Poster 23"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="23"
+            >
+              <img
+                src="public/images/IMG_49982x.jpeg"
+                alt="Akupunktur-Poster 24"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="24"
+            >
+              <img
+                src="public/images/IMG_49992x.jpeg"
+                alt="Akupunktur-Poster 25"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="25"
+            >
+              <img
+                src="public/images/IMG_50012x.jpeg"
+                alt="Akupunktur-Poster 26"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="26"
+            >
+              <img
+                src="public/images/IMG_5001292x.jpeg"
+                alt="Akupunktur-Poster 27"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="27"
+            >
+              <img
+                src="public/images/IMG_50032x.jpeg"
+                alt="Akupunktur-Poster 28"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="28"
+            >
+              <img
+                src="public/images/IMG_50042x.jpeg"
+                alt="Akupunktur-Poster 29"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="29"
+            >
+              <img
+                src="public/images/IMG_50052x.jpeg"
+                alt="Akupunktur-Poster 30"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="30"
+            >
+              <img
+                src="public/images/IMG_50062x.jpeg"
+                alt="Akupunktur-Poster 31"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="31"
+            >
+              <img
+                src="public/images/IMG_50072x.jpeg"
+                alt="Akupunktur-Poster 32"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="32"
+            >
+              <img
+                src="public/images/IMG_50082x.jpeg"
+                alt="Akupunktur-Poster 33"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="33"
+            >
+              <img
+                src="public/images/IMG_50092x.jpeg"
+                alt="Akupunktur-Poster 34"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="34"
+            >
+              <img
+                src="public/images/IMG_50102x.jpeg"
+                alt="Akupunktur-Poster 35"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="35"
+            >
+              <img
+                src="public/images/IMG_50112x.jpeg"
+                alt="Akupunktur-Poster 36"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="36"
+            >
+              <img
+                src="public/images/IMG_50122x.jpeg"
+                alt="Akupunktur-Poster 37"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="37"
+            >
+              <img
+                src="public/images/IMG_50132x.jpeg"
+                alt="Akupunktur-Poster 38"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="38"
+            >
+              <img
+                src="public/images/IMG_50142x.jpeg"
+                alt="Akupunktur-Poster 39"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="39"
+            >
+              <img
+                src="public/images/IMG_50152x.jpeg"
+                alt="Akupunktur-Poster 40"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="40"
+            >
+              <img
+                src="public/images/IMG_50222x.jpeg"
+                alt="Akupunktur-Poster 41"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="41"
+            >
+              <img
+                src="public/images/IMG_50232x.jpeg"
+                alt="Akupunktur-Poster 42"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="42"
+            >
+              <img
+                src="public/images/IMG_50242x.jpeg"
+                alt="Akupunktur-Poster 43"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="gallery-item"
+              role="listitem"
+              tabindex="0"
+              data-index="43"
+            >
+              <img
+                src="public/images/IMG_50252x.jpeg"
+                alt="Akupunktur-Poster 44"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <p
+            style="
+              text-align: center;
+              margin-top: 1.5rem;
+              color: var(--color-text-muted);
+              font-size: 0.88rem;
+              font-family: var(--font-sans);
+            "
+          >
+            Auf ein Bild klicken zum Vergrößern
+          </p>
+        </div>
+      </section>
+
+      <!-- ══ KONTAKT ═══════════════════════════════════════════ -->
+      <section class="section">
+        <div class="container">
+          <div class="contact-box">
+            <span class="section-label" style="color: var(--color-accent-light)"
+              >Termin vereinbaren</span
+            >
+            <h2>Kontakt aufnehmen</h2>
+            <div
+              class="divider"
+              style="background: var(--color-accent-light)"
+            ></div>
+            <div class="contact-grid">
+              <div class="contact-item">
+                <span class="contact-label">Adresse</span>
+                <span class="contact-value"
+                  >Werderstr. 7<br />76137 Karlsruhe</span
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Telefon</span>
+                <span class="contact-value"
+                  ><a href="tel:072140693">0721 40 69 37</a></span
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">E-Mail</span>
+                <span class="contact-value"
+                  ><a href="mailto:info@praxismeyer.de"
+                    >info@praxismeyer.de</a
+                  ></span
+                >
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Abrechnung</span>
+                <span class="contact-value">
+                  <span class="contact-badge">Privatkassen</span>
+                  <span class="contact-badge">Beihilfe</span>
+                  <span class="contact-badge">Selbstzahler</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ══ LIGHTBOX ═════════════════════════════════════════════ -->
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Bild-Vollansicht"
+    >
+      <button class="lightbox-close" id="lb-close" aria-label="Schließen">
+        &times;
+      </button>
+      <button class="lightbox-prev" id="lb-prev" aria-label="Vorheriges Bild">
+        &#8249;
+      </button>
+      <img id="lb-img" src="" alt="" />
+      <button class="lightbox-next" id="lb-next" aria-label="Nächstes Bild">
+        &#8250;
+      </button>
+    </div>
+
+    <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
+    <footer class="site-footer" aria-label="Seiten-Footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-name">Dr. phil. Thomas Meyer</div>
+            <div class="footer-tagline">
+              Physikalische Therapie &amp; Sportpsychologie
+            </div>
+            <div class="footer-contact-item">Werderstr. 7, 76137 Karlsruhe</div>
+            <div class="footer-contact-item">
+              <a href="tel:072140693">0721 40 69 37</a>
+            </div>
+            <div class="footer-contact-item">
+              <a href="mailto:info@praxismeyer.de">info@praxismeyer.de</a>
+            </div>
+            <div class="footer-badges">
+              <span class="footer-badge">Privatkassen</span>
+              <span class="footer-badge">Beihilfe</span>
+              <span class="footer-badge">Selbstzahler</span>
+            </div>
+          </div>
+          <div>
+            <div class="footer-heading">Navigation</div>
+            <nav class="footer-links" aria-label="Footer-Navigation">
+              <a href="index.html">Willkommen</a>
+              <a href="physikalische-therapie.html">Physikalische Therapie</a>
+              <a href="sportpsychologie.html">Sportpsychologie</a>
+              <a href="publikationen.html">Publikationen</a>
+              <a href="service.html">Service</a>
+              <a href="akupunktur.html">Akupunktur</a>
+              <a href="datenschutz.html">Datenschutz</a>
+            </nav>
+          </div>
+          <div>
+            <div class="footer-heading">Qualifikationen</div>
+            <div
+              class="footer-links"
+              style="
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 0.88rem;
+                gap: 0.4rem;
+              "
+            >
+              <span>Dr. phil. Sportwissenschaft</span>
+              <span>Magister Artium</span>
+              <span>Masseur &amp; med. Bademeister</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; Praxis Dr. phil. Thomas Meyer, Karlsruhe ·
+          <a href="datenschutz.html" style="color: inherit">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="src/scripts/main.js" defer></script>
+    <script>
+      // Lightbox für Akupunktur-Galerie
+      document.addEventListener("DOMContentLoaded", () => {
+        const gallery = document.getElementById("akupunktur-gallery");
+        const lightbox = document.getElementById("lightbox");
+        const lbImg = document.getElementById("lb-img");
+        const items = Array.from(gallery.querySelectorAll(".gallery-item"));
+        let current = 0;
+
+        function open(idx) {
+          current = idx;
+          const img = items[idx].querySelector("img");
+          lbImg.src = img.src;
+          lbImg.alt = img.alt;
+          lightbox.classList.add("active");
+          document.body.style.overflow = "hidden";
+          document.getElementById("lb-close").focus();
+        }
+
+        function close() {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "";
+          items[current].focus();
+        }
+
+        function prev() {
+          open((current - 1 + items.length) % items.length);
+        }
+        function next() {
+          open((current + 1) % items.length);
+        }
+
+        items.forEach((item, i) => {
+          item.addEventListener("click", () => open(i));
+          item.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              open(i);
+            }
+          });
+        });
+
+        document.getElementById("lb-close").addEventListener("click", close);
+        document.getElementById("lb-prev").addEventListener("click", prev);
+        document.getElementById("lb-next").addEventListener("click", next);
+
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) close();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (!lightbox.classList.contains("active")) return;
+          if (e.key === "Escape") close();
+          if (e.key === "ArrowLeft") prev();
+          if (e.key === "ArrowRight") next();
+        });
+      });
+    </script>
+  </body>
+</html>
