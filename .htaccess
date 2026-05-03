@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^praxismeyer\.de$ [NC]
+RewriteRule ^(.*)$ https://www.praxismeyer.de/$1 [L,R=301]
